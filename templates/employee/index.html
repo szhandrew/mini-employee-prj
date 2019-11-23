@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Employee Register</h1>
+ 
+<form action="/employee/register/" method="post">
+    {% csrf_token %}
+    <p>Name<input type="text" name="name"></p>
+    <p>E-mail<input type="text" name="email"></p>
+    <p>Position<input type="text" name="position"></p>
+    <p>PhoneNumber<input type="text" name="phoneNumber"></p>
+    <p>Salary<input type="text" name="salary"></p>
+    <p>DateHired<input type="text" name="dateHired"></p>
+    <p><input type="submit" value="submit"></p>
+ 
+</form>
+ 
+<hr>
+ 
+<h1>Employee Display</h1>
+ 
+<table border="1">
+ 
+    <tr>
+        <td>Name</td>
+        <td>E-mail</td>
+        <td>Position</td>
+        <td>PhoneNumber</td>
+        <td>Salary</td>
+        <td>DateHired</td>
+    </tr>
+    {% for i in info_list %}
+ 
+        <tr>
+            <td>{{ i.nm }}</td>
+            <td>{{ i.em }}</td>
+            <td>{{ i.pos }}</td>
+            <td>{{ i.pn }}</td>
+            <td>{{ i.sl }}</td>
+            <td>{{ i.dh }}</td>
+        </tr>
+ 
+    {% endfor %}
+ 
+</table>
+ 
+</body>
+</html>
